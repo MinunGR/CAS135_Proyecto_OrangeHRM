@@ -10,9 +10,12 @@ describe('REC-002 - Registrar candidato a vacante', () => {
      */
     it('Debe registrar un candidato a una vacante existente', { tags: ['@recruitment', '@high', '@smoke'] }, () => {
 
+        // Forzamos vista de escritorio (Cypress reduce la ventana y por ende el tamaño)
+        cy.viewport(1400, 900);
+
         // Navegar al módulo de Reclutamiento
-        cy.contains('Recruitment').click()
-        cy.url().should('include', '/recruitment')
+        cy.contains('Recruitment').click();
+        cy.url().should('include', '/recruitment');
 
         // Precondición: Navegar a la sección de Candidatos
         cy.contains('Candidates').click()

@@ -11,10 +11,12 @@ describe('REC-004 - Rechazo por duplicado (negativo)', () => {
      * Resultado Esperado: El sistema evita duplicar al candidato y muestra validación
      */
     it('Debe validar y evitar registrar candidato duplicado', { tags: ['@recruitment', '@medium', '@negative', '@regression'] }, () => {
-        // Navegar al módulo de Reclutamiento
-        cy.contains('Recruitment').click()
-        cy.url().should('include', '/recruitment')
+        // Forzamos vista de escritorio (Cypress reduce la ventana y por ende el tamaño)
+        cy.viewport(1400, 900);
 
+        // Navegar al módulo de Reclutamiento
+        cy.contains('Recruitment').click();
+        cy.url().should('include', '/recruitment');
         // Precondición: Crear un candidato primero
         cy.contains('Candidates').click()
         cy.contains('button', 'Add').click()

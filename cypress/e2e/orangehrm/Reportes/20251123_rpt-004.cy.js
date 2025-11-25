@@ -1,8 +1,11 @@
 describe('RPT-004 - Filtro inválido/fecha fuera de rango (negativo)', () => {
     it('Debe mostrar mensaje de error al aplicar fecha de inicio posterior a fecha de fin', () => {
-        // Navegar a la sección de reportes
-        cy.visit('https://orangehrm-demo-7x.orangehrmlive.com/client/#/reports_and_analytics/catalogue');
-        cy.wait(4000);
+        // Forzamos vista de escritorio (Cypress reduce la ventana y por ende el tamaño)
+        cy.viewport(1400, 900);
+
+        // Navegar a la sección de reportes y analytics
+        cy.contains('Reports and Analytics').click();
+        cy.url().should('include', '/reports_and_analytics');
 
         // Seleccionar un reporte
         cy.get('.oxd-grid-item, .oxd-table-card').first().click();

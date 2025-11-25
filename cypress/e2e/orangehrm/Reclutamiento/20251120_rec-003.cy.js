@@ -10,9 +10,12 @@ describe('REC-003 - Cambiar estado del candidato en pipeline', () => {
      */
     it('Debe cambiar el estado del candidato en el pipeline', { tags: ['@recruitment', '@medium', '@regression'] }, () => {
 
+        // Forzamos vista de escritorio (Cypress reduce la ventana y por ende el tamaño)
+        cy.viewport(1400, 900);
+
         // Navegar al módulo de Reclutamiento
-        cy.contains('Recruitment').click()
-        cy.url().should('include', '/recruitment')
+        cy.contains('Recruitment').click();
+        cy.url().should('include', '/recruitment');
 
         // Precondición: Navegar a Candidatos
         cy.contains('Candidates').click()

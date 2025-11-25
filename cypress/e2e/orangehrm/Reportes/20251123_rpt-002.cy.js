@@ -1,8 +1,11 @@
 describe('RPT-002 - Aplicar filtros múltiples en dashboard', () => {
     it('Debe cambiar los KPIs en función de los filtros elegidos', () => {
-        // Navegar al dashboard de reportes
-        cy.visit('https://orangehrm-demo-7x.orangehrmlive.com/client/#/reports_and_analytics/catalogue');
-        cy.wait(4000);
+        // Forzamos vista de escritorio (Cypress reduce la ventana y por ende el tamaño)
+        cy.viewport(1400, 900);
+
+        // Navegar a la sección de reportes y analytics
+        cy.contains('Reports and Analytics').click();
+        cy.url().should('include', '/reports_and_analytics');
 
         // Ir al dashboard principal
         cy.contains('Dashboard', { timeout: 10000 }).click();
