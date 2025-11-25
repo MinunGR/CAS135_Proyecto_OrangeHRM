@@ -2,7 +2,7 @@ describe('RPT-002 - Aplicar filtros múltiples en dashboard', () => {
     it('Debe cambiar los KPIs en función de los filtros elegidos', () => {
         // Navegar al dashboard de reportes
         cy.visit('https://orangehrm-demo-7x.orangehrmlive.com/client/#/reports_and_analytics/catalogue');
-        cy.wait(2000);
+        cy.wait(4000);
 
         // Ir al dashboard principal
         cy.contains('Dashboard', { timeout: 10000 }).click();
@@ -10,24 +10,27 @@ describe('RPT-002 - Aplicar filtros múltiples en dashboard', () => {
 
         // Capturar valores iniciales de KPIs
         let initialKpiValue;
-        cy.get('[data-testid="kpi-card"]').first().invoke('text').then((text) => {
+        cy.get('.orangehrm-dashboard-widget-body, .oxd-sheet').first().invoke('text').then((text) => {
             initialKpiValue = text;
         });
 
         // Aplicar primer filtro (por ejemplo, departamento)
-        cy.get('select[name="department"]').select(1);
+        // OrangeHRM uses custom dropdowns
+        cy.get('.oxd-select-wrapper').first().click();
+        cy.get('.oxd-select-dropdown').should('be.visible');
+        cy.get('.oxd-select-dropdown > *').eq(1).click(); // Select second option
         cy.wait(1500);
 
         // Aplicar segundo filtro (por ejemplo, rango de fechas)
-        cy.get('input[type="date"]').first().clear().type('2024-11-01');
-        cy.get('input[type="date"]').last().clear().type('2024-11-30');
+        cy.get('.oxd-date-input .oxd-input').first().clear().type('2024-11-01');
+        cy.get('.oxd-date-input .oxd-input').last().clear().type('2024-11-30');
 
         // Aplicar filtros
         cy.contains('button', 'Apply').click();
         cy.wait(2000);
 
         // Verificar que los KPIs cambiaron
-        cy.get('[data-testid="kpi-card"]').first().invoke('text').should((newText) => {
+        cy.get('.orangehrm-dashboard-widget-body, .oxd-sheet').first().invoke('text').should((newText) => {
             expect(newText).to.not.equal(initialKpiValue);
         });
 
