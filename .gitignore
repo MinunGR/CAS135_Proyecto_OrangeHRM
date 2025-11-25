@@ -2,9 +2,9 @@
 node_modules/
 
 # Carpetas de ejemplos de Cypress
-cypress/e2e/1-getting-started
-cypress/e2e/2-advanced-examples
-cypress/e2e/orangehrm/support_addons
+cypress/e2e/1-getting-started/
+cypress/e2e/2-advanced-examples/
+cypress/e2e/orangehrm/support_addons/
 
 # O si quieres ignorar todo el directorio cypress/examples:
 # cypress/examples/
