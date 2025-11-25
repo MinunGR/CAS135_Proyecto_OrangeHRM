@@ -1,5 +1,5 @@
-// HR-R3- Baja de empleado y cambio de estado.
-describe('HHRR – Baja de empleado y cambio de estado', () => {
+// HR-R5- Baja de empleado
+describe('RRHH – Baja de empleado', () => {
   it('Debe terminar un empleado correctamente', () => {
     // Cerrar sidebar
     /*cy.get('#sidebar-toggle').click();*/

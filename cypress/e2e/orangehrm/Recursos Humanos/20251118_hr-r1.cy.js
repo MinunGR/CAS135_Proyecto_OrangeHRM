@@ -1,5 +1,5 @@
-// HR-R1: Alta de empleado con datos obligatorios.
-describe('HR-R1: Alta de empleado con datos obligatorios', () => {
+// HR-R1: Alta de empleado con datos obligatorios
+describe('RRHH: Alta de empleado con datos obligatorios', () => {
   it('Debe ingresar un empleado correctamente', () => {
     // Forzamos vista de escritorio (Cypress reduce la ventana y por ende el tamaño)
     cy.viewport(1400, 900);
@@ -97,7 +97,6 @@ describe('HR-R1: Alta de empleado con datos obligatorios', () => {
 
     // Buscamos si el nombre del empleado recién creado aparece (Significaria que estamos en su hoja de detalles)
     cy.contains(first_name + " " + middle_name + " " + last_name, { timeout: 15000 }).should('be.visible');
-
 
   });
 
