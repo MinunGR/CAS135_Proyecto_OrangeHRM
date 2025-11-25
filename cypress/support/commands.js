@@ -40,8 +40,10 @@ Cypress.Commands.add('login', () => {
   cy.get('#frmLogin', { timeout: 15000 }).should('be.visible');
 
   // Llenado del formulario
-  cy.get('#txtUsername').clear().type('Admin_CAS');
-  cy.get('#txtPassword').clear().type('A17B25cc33#$');
+  //cy.get('#txtUsername').clear().type('Admin_CAS');
+  //cy.get('#txtPassword').clear().type('A17B25cc33#$');
+  cy.get('#txtUsername').clear().type('hamiltonaaron');
+  cy.get('#txtPassword').clear().type('0KKMAeqq1@p3F');
 
   // Clic al botón de login
   cy.get('#btnLogin').click();
