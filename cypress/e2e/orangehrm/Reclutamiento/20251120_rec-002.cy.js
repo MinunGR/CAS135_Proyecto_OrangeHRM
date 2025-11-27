@@ -7,6 +7,7 @@ describe('REC-002 - Registrar candidato a vacante', () => {
      * Título: Registrar candidato a vacante
      * Prioridad: Alta
      * Resultado Esperado: El candidato se registra y queda asociado a la vacante
+     * Generado por IA ya que no se puede usar esta funcion, al agregar cansidato da error fuera del alcance.
      */
     it('Debe registrar un candidato a una vacante existente', { tags: ['@recruitment', '@high', '@smoke'] }, () => {
 

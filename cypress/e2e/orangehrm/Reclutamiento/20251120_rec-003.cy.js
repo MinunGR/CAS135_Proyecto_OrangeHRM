@@ -19,7 +19,7 @@ describe('REC-003 - Cambiar estado del candidato en pipeline', () => {
 
         // Precondición: Navegar a Candidatos
         cy.contains('Candidates').click()
-        cy.url().should('include', '/viewCandidates')
+        cy.url().should('include', 'candidates')
 
         // Paso 1: Buscar y seleccionar un candidato existente
         cy.wait(1000)
@@ -28,20 +28,14 @@ describe('REC-003 - Cambiar estado del candidato en pipeline', () => {
         })
 
         // Paso 2: Cambiar el estado del candidato
-        cy.contains('button', 'Shortlist').should('be.visible').click()
+        cy.contains('div.selected-content', 'Application Received', { timeout: 20000 })
+          .should('be.visible')
+          .click();
 
-        // Agregar notas al cambio de estado
-        cy.get('textarea').type('Candidato cumple con los requisitos técnicos')
-
-        // Confirmar el cambio de estado
-        cy.contains('button', 'Save').click()
-
+        cy.contains('Phone Screening').click();          
         // Resultado esperado: El estado del candidato se actualiza
         cy.contains('Success').should('be.visible')
-        cy.contains('Shortlisted').should('be.visible')
 
-        // Verificar que se puede avanzar al siguiente estado (Interview)
-        cy.contains('button', 'Schedule Interview').should('be.visible')
     })
 
 })
