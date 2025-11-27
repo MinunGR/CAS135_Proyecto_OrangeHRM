@@ -9,6 +9,7 @@ describe('REC-004 - Rechazo por duplicado (negativo)', () => {
      * Título: Rechazo por duplicado (negativo)
      * Prioridad: Media
      * Resultado Esperado: El sistema evita duplicar al candidato y muestra validación
+     * codigo generado de forma ficticia ya que no existe esta funcion o forma de que de error al no ser psoole la creacion de un candidato
      */
     it('Debe validar y evitar registrar candidato duplicado', { tags: ['@recruitment', '@medium', '@negative', '@regression'] }, () => {
         // Forzamos vista de escritorio (Cypress reduce la ventana y por ende el tamaño)
