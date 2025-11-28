@@ -13,14 +13,14 @@ describe('Time Tracking - Timesheet Periods', () => {
         cy.contains('Configuration').click();
         cy.wait(1500);
         cy.contains('Timesheet Periods').click();
-        cy.wait(6000); // La página es lenta
+        cy.wait(10000); // La página es lenta
 
         cy.url().should('include', 'timesheet_periods');
 
         // ================================
         // 🔍 DETECTAR CHECKBOX DEL TOGGLE
         // ================================
-        cy.get('input[id^="timesheet_period_switch_"]', { timeout: 8000 })
+        cy.get('input[id^="timesheet_period_switch_"]', { timeout: 10000 })
             .first()
             .should('exist')
             .then($check => {
