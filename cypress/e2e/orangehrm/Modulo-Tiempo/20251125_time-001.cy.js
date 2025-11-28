@@ -9,6 +9,8 @@ describe('Time Tracking - Customers', () => {
 
     it('Agregar nuevo customer y verificar su creación', () => {
 
+        cy.viewport(1400, 900);
+        
         const nombreCustomer = generarNombreUnico();
         cy.log(`🟢 Nombre generado: ${nombreCustomer}`);
 
